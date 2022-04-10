@@ -28,6 +28,8 @@ def get_qingyunke(text, userid=''):
             # print(resp.text)
             re_data = resp.json()
             if re_data['result'] == 0:
+                #去除换行标签
+                re_data['content'] = re_data['content'].replace('{br}', '\n')
                 return_text = re_data['content']
                 return return_text
 
